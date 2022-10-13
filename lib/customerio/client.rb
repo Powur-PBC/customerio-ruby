@@ -146,7 +146,7 @@ module Customerio
       attributes = Hash[attributes.map { |(k,v)| [ k.to_sym, v ] }]
       raise MissingIdAttributeError.new("Must provide a customer id") if is_empty?(attributes[:id])
 
-      url = customer_path(attributes[:id])
+      url = customer_path(attributes[:cio_id] || attributes[:id])
       @client.request_and_verify_response(:put, url, attributes)
     end
 

@@ -56,6 +56,7 @@ module Customerio
 
       if !body.nil?
         req.add_field('Content-Type', 'application/json')
+        body.delete(:cio_id)
         req.body = MultiJson.dump(body)
       end
 

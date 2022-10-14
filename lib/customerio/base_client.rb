@@ -35,6 +35,7 @@ module Customerio
     private
 
     def execute(method, path, body = nil, headers = {})
+      print(method, path, body, headers)
       uri = URI.join(@base_uri, path)
 
       session = Net::HTTP.new(uri.host, uri.port)
